@@ -26,6 +26,6 @@ public class Book {
     public Boolean isAvailable;
 
 
-    //relationships
+    //relationships uno a uno con usuario, muchos a uno con autor y uno a uno con editorial
 
 }
