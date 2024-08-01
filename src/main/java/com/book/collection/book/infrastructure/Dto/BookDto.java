@@ -1,4 +1,4 @@
-package com.book.collection.Dto;
+package com.book.collection.book.infrastructure.Dto;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

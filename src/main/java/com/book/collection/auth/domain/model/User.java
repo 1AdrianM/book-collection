@@ -1,4 +1,4 @@
-package com.book.collection.Models;
+package com.book.collection.auth.domain.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
