@@ -1,11 +1,12 @@
 package com.book.collection.book.infrastructure.repositoryImpl;
 import com.book.collection.book.domain.model.Book;
-import com.book.collection.book.domain.repository.bookRepository;
+import com.book.collection.book.domain.repository.outbound.bookRepository;
 import com.book.collection.book.infrastructure.Dto.BookDto;
 import com.book.collection.book.infrastructure.mapper.bookMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.book.collection.book.infrastructure.Database.BookJpaRepository;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static com.book.collection.book.infrastructure.mapper.bookMapper.BookEntityToDto;
@@ -20,7 +21,7 @@ public class bookRepositoryImpl implements bookRepository {
     }
 
     @Override
-    public BookDto createBook(BookDto bookDto) {
+    public BookDto saveBook(BookDto bookDto) {
         Book book = new Book();
                 book.setBookId(bookDto.getBookId());
                 book.setBookTitle(bookDto.getBookTitle());
@@ -47,13 +48,13 @@ public class bookRepositoryImpl implements bookRepository {
 return bookResponse;
     }
     @Override
-    public List<BookDto> findBooks() {
+    public List<BookDto> findAllBook() {
         List <Book> books =bookRepo.findAll();
 return books.stream().map(bookMapper::BookEntityToDto).collect(Collectors.toList());
     }
 
     @Override
-    public BookDto updateBook(int bookId, BookDto bookDto) {
+    public BookDto findAndUpdateBook(int bookId, BookDto bookDto) {
         Book book= bookRepo.findById(bookId).orElseThrow(null);
         book.setBookTitle(bookDto.getBookTitle());
         book.setGenre(bookDto.getGenre());
@@ -68,19 +69,20 @@ return books.stream().map(bookMapper::BookEntityToDto).collect(Collectors.toList
     }
 
     @Override
-    public BookDto findBookById(int bookId) {
+    public Optional<BookDto> findBookById(int bookId) {
         Book book= bookRepo.findById(bookId).orElseThrow(null);
-        return BookEntityToDto(book);
+        return Optional.ofNullable(BookEntityToDto(book));
     }
 
     @Override
-    public void deleteBook(int id) {
+    public void findAndDeleteBookById(int id) {
         Book book= bookRepo.findById(id).orElseThrow(null);
      bookRepo.delete(book);
     }
 
     @Override
     public boolean takeABook() {
+
         return false;
     }
 }
