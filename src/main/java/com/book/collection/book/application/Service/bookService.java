@@ -19,7 +19,7 @@ public class bookService implements
     private final getBookUseCase getBookUseCase;
     private final updateBookUseCase updateBookUseCase;
 
-    public bookService(com.book.collection.book.domain.repository.inbound.createBookUseCase createBookUseCase, com.book.collection.book.domain.repository.inbound.deleteBookUseCase deleteBookUseCase, com.book.collection.book.domain.repository.inbound.getBookListUseCase getBookListUseCase, com.book.collection.book.domain.repository.inbound.getBookUseCase getBookUseCase, com.book.collection.book.domain.repository.inbound.updateBookUseCase updateBookUseCase) {
+    public bookService(createBookUseCase createBookUseCase,deleteBookUseCase deleteBookUseCase,getBookListUseCase getBookListUseCase, getBookUseCase getBookUseCase, updateBookUseCase updateBookUseCase) {
         this.createBookUseCase = createBookUseCase;
         this.deleteBookUseCase = deleteBookUseCase;
         this.getBookListUseCase = getBookListUseCase;
