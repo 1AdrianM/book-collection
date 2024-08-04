@@ -12,6 +12,6 @@ public class createBookUseCaseImpl implements createBookUseCase {
 
     @Override
     public BookDto createBook(BookDto bookDto) {
-        return null;
+        return bookRepository.saveBook(bookDto);
     }
 }

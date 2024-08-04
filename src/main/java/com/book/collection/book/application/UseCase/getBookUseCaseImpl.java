@@ -15,6 +15,6 @@ public class getBookUseCaseImpl implements  getBookUseCase {
 
     @Override
     public Optional<BookDto> getBook(int bookId) {
-        return Optional.empty();
+        return bookRepository.findBookById(bookId);
     }
 }

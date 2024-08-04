@@ -15,6 +15,6 @@ public class getBookListUseCaseImpl implements getBookListUseCase{
 
     @Override
     public List<BookDto> getBookList() {
-        return List.of();
+        return bookRepository.findAllBook();
     }
 }

@@ -29,26 +29,26 @@ public class bookService implements
 
     @Override
     public BookDto createBook(BookDto bookDto) {
-        return null;
+        return createBookUseCase.createBook(bookDto);
     }
 
     @Override
     public void deleteBook(int bookId) {
-
+   deleteBookUseCase.deleteBook(bookId);
     }
 
     @Override
     public List<BookDto> getBookList() {
-        return List.of();
+        return getBookListUseCase.getBookList();
     }
 
     @Override
     public Optional<BookDto> getBook(int bookId) {
-        return Optional.empty();
+        return getBookUseCase.getBook(bookId);
     }
 
     @Override
     public BookDto updateBook(int bookId, BookDto bookDto) {
-        return null;
+        return updateBookUseCase.updateBook(bookId, bookDto);
     }
 }

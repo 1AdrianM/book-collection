@@ -13,6 +13,6 @@ public class updateBookUseCaseImpl implements updateBookUseCase {
 
     @Override
     public BookDto updateBook(int bookId, BookDto bookDto) {
-        return null;
+        return bookRepository.findAndUpdateBook(bookId, bookDto);
     }
 }

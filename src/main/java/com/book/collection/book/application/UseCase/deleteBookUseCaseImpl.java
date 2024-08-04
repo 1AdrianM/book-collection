@@ -10,6 +10,6 @@ public class deleteBookUseCaseImpl implements deleteBookUseCase {
 
     @Override
     public void deleteBook(int bookId) {
-
+    bookRepository.findAndDeleteBookById(bookId);
     }
 }
