@@ -1,13 +1,14 @@
-package com.book.collection.book.domain.model;
+package com.book.collection.author.domain.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.book.collection.book.domain.model.Book;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -18,8 +19,9 @@ import lombok.NoArgsConstructor;
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-private int authorId;
+    private int id;
     private String name;
-
     //relacion uno a muchos con libros
+    @OneToMany(mappedBy = "Author", cascade = CascadeType.ALL)
+    private List<Book> books = new ArrayList<>();
 }
