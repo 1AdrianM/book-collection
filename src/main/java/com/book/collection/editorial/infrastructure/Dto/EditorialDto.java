@@ -1,23 +1,19 @@
-package com.book.collection.editorial.domain.model;
+package com.book.collection.editorial.infrastructure.Dto;
+
 
 import com.book.collection.book.domain.model.Book;
+import com.book.collection.book.infrastructure.Dto.BookDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@Builder
-@Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Editorial {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class EditorialDto {
+
     private int id;
     private String name;
-    @OneToOne
-    @JoinColumn(name = "book-id")
-    private Book book;
+    private BookDto bookDto;
 }

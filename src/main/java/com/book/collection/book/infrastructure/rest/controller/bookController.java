@@ -22,7 +22,7 @@ private final bookService bookService;
     @PostMapping("/create")
 
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<BookDto> PostBook(@RequestBody BookDto bookDto){
+    public ResponseEntity<BookDto> PostBook(@RequestBody BookDto bookDto ){
       return new ResponseEntity<>(bookService.createBook(bookDto),HttpStatus.CREATED);
     }
 

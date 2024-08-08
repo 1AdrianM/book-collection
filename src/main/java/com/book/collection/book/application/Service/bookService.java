@@ -18,7 +18,8 @@ public class bookService implements
     private final getBookListUseCase getBookListUseCase;
     private final getBookUseCase getBookUseCase;
     private final updateBookUseCase updateBookUseCase;
-
+//private final authorRepository authorRepository;
+//private final editorialRepository editorialRepository;
     public bookService(createBookUseCase createBookUseCase,deleteBookUseCase deleteBookUseCase,getBookListUseCase getBookListUseCase, getBookUseCase getBookUseCase, updateBookUseCase updateBookUseCase) {
         this.createBookUseCase = createBookUseCase;
         this.deleteBookUseCase = deleteBookUseCase;
@@ -29,6 +30,7 @@ public class bookService implements
 
     @Override
     public BookDto createBook(BookDto bookDto) {
+
         return createBookUseCase.createBook(bookDto);
     }
 
